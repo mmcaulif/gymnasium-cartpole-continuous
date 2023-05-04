@@ -2,7 +2,7 @@ from os import path
 from setuptools import setup
 
 TEST_REQUIRES = ['pytest', 'pytest_cases']
-INSTALL_REQUIRES = ['gym']
+INSTALL_REQUIRES = ['gymnasium']
 
 setup(name='gym-cartpole-continuous',
       version='0.0.1',

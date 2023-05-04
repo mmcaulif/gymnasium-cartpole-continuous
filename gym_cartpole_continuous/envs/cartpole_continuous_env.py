@@ -1,8 +1,7 @@
 import math
-
 import numpy as np
-from gym import spaces, logger
-from gym.envs.classic_control import CartPoleEnv
+from gymnasium import spaces, logger
+from gymnasium.envs.classic_control import CartPoleEnv
 
 
 class CartPoleContinuousEnv(CartPoleEnv):
@@ -63,4 +62,4 @@ class CartPoleContinuousEnv(CartPoleEnv):
             self.steps_beyond_done += 1
             reward = 0.0
 
-        return np.array(self.state), reward, done, {}
+        return np.array(self.state, dtype=np.float32), reward, done, False, {}
