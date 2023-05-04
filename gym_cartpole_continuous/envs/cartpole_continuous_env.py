@@ -50,16 +50,16 @@ class CartPoleContinuousEnv(CartPoleEnv):
 
         if not done:
             reward = 1.0
-        elif self.steps_beyond_done is None:
+        elif self.steps_beyond_terminated is None:
             # Pole just fell!
-            self.steps_beyond_done = 0
+            self.steps_beyond_terminated = 0
             reward = 1.0
         else:
-            if self.steps_beyond_done == 0:
+            if self.steps_beyond_terminated == 0:
                 logger.warn("You are calling 'step()' even though this environment has already returned done = True."
                             " You should always call 'reset()' once you receive 'done = True' -- any further steps "
                             "are undefined behavior.")
-            self.steps_beyond_done += 1
+            self.steps_beyond_terminated += 1
             reward = 0.0
 
         return np.array(self.state, dtype=np.float32), reward, done, False, {}
